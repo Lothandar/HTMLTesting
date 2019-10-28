@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+            <button onclick="older()">happy Birthday</button>
+            <label id= "age"></label>
+    
+        <br>
+        <label value="name:" >name:</label><input type="text" id="nameBox"></input><br>
+        <label value="age:" >age:</label><input type="text" id="ageBox"></input><br>
+        <label value="occupation:" >occupation:</label><input type="text" id="occupationBox"></input><br>
+        <button value="submit" onclick="getFromTextBoxes()">input</button>
+        <script>
+            person = {
+                name : "someone",
+                age : 10,
+                occupation: "javascript Dev"
+            };
+            function squaring()
+            {
+                if(arguments[0])
+                {
+                    return arguments[0] * arguments[0];
+                }
+                return 0;
+            }        
+        
+            function add()
+            {
+                let result =0;
+                for(let i of arguments)
+                {
+                    result += i;
+                }
+                return result;
+            }
+            function createEditPerson(name, age, occupation)
+            {
+                person = {
+                    name: name,
+                    age: age,
+                    occupation: occupation
+                };
+                console.log(person);
+                //person.name = "new Name";
+                console.log(person);
+                return person;
+            }
+            function older()
+            {
+                person.age ++;
+                document.getElementById("age").innerText = person.age;
+            }
+            function getFromTextBoxes()
+            {
+                let name = document.getElementById("nameBox").value;
+                let age = document.getElementById("ageBox").value;
+                let occupation = document.getElementById("occupationBox").value;
+                person = createEditPerson(name, age, occupation);
+                console.log(person);
+            }
+            function string1()
+            {
+                let string1 = 'he said "My name is Elliott" ';
+                console.log(string1);
+                string1 = string1.toUpperCase();
+                console.log(string1);
+            }
+            function string2()
+            {
+                console.log(1 + "15");
+            }
+            function arrays1()
+            {
+               let array1 = ["1", "2", "3"];
+               console.log(array1);
+               array1.push("4");
+               console.log(array1);
+               array1.pop(1);
+               console.log(array1);
+            }
+            function condition1()
+            {
+                return  20 <= person.age <=40;
+            }
+            function iteration1()
+            {
+                for(let i = 1; i<=10; i++)
+                {
+                    if(i%2 ==0)
+                    {
+                    console.log(i);
+                    }
+                }
+            }
+            function iteration3()
+            {
+
+            }
+            function makeAShape(string, width, height)
+            {
+                
+            }
+        </script>
+    </body>
+</html>

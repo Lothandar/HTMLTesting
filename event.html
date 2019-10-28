@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src=".Scripts/eventScript.js"></script>
+    </head>
+    <body>
+        <input type="button" id="onOff" value="On"></input>
+        <button value="Reset" id="reset" onclick="reset()">Reset</button>
+        
+        <br><br><br><br>
+
+        <button onclick="minus()">-</button>
+        <label id="labelCount" value="0">0</label>
+        <button onclick="plus()">+</button>
+        <label id="historyValues" value="0"></label>
+        <br>
+        <button onclick="ResetCount()">Reset</button>
+        <br><br>
+        <button onclick="EraseHistory()">Erase my internet Browser History</button>
+        <script>
+        document.getElementById("onOff").addEventListener("click", (event) => {
+            console.log(event.srcElement.id);
+            onOff();
+        })
+        </script>
+    </body>
+</html>

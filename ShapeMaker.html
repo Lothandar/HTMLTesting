@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <script>
+        function rektangle()
+        {
+            let string1 = "rekt";
+
+            var matrix = [];
+            let rektHeight = 2;
+            let rektWidth = 2;
+            var matrix = [];
+            for(var i=0; i<(string1.length * rektHeight) - (rektHeight - 1); i++) {
+                matrix[i] = [];
+                for(var j=0; j<(string1.length * rektWidth) - (rektWidth - 1); j++) {
+                   // matrix[i][j] = matrix[j] = new Array((string1.length * rektWidth) - (rektWidth - 1));
+                    if( (i+1)  == string1.length * rektHeight - (rektHeight - 1)|| i ==0 || (i+1) % string1.length == 0)
+                    {
+                        
+                        //console.log("triggered");
+                        if(j < string1.length - 1)
+                        {
+                            matrix[i][j]= string1[j];
+                            //console.log(string1[j]);
+                        }
+                        else if(i == string1.length -1)
+                        {
+                            matrix[i][j] = string1[string1.length - 1];
+                        }
+                        else
+                        {
+                            //console.log(string1.length - j);
+                            //console.log((string1.length - Math.abs(string1.length - j))- 1);
+                            matrix[i][j]= string1[string1.length - Math.abs(string1.length - j) - 2];
+                        }
+                    }
+                    else
+                    {
+                        if((j+1)  == string1.length * rektWidth - (rektWidth - 1)|| j ==0 ||(j + 1) % string1.length == 0)
+                            {
+                                if(i < string1.length - 1)
+                                {
+                                    matrix[i][j] = string1[i];
+                                    //console.log(string1[j]);
+                                }
+                                else if(i == string1.length -1)
+                                {
+                                    matrix[i][j] = string1[string1.length - 1];
+                                }
+                                else
+                                {
+                                    matrix[i][j]= string1[string1.length - Math.abs(string1.length - i) - 2];
+                                }
+                                
+                            }
+                            else
+                            {
+                                //empty
+                                //console.log("empty string");
+                                matrix[i][j] = " ";
+                            }
+                    }
+                }
+            }
+            console.log(matrix);
+        }
+    </script>
+</body>
+</html>

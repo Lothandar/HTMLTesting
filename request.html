@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href=".\bootstrap-4.3.1-dist\css\bootstrap.min.css">
+    </head>
+    <body>
+            <div id="demo" class="row"></div>
+        <script>
+            
+        </script>
+        <script>
+            const xhr = new XMLHttpRequest();
+            let result;
+            xhr.onload = () => {result = xhr.responseText;
+            result =JSON.parse(result);
+
+
+
+            let myp = document.createElement("p");
+            myp.innerText = result.name;
+            document.getElementById("demo").appendChild(myp);
+            let myimg = document.createElement("img");
+            myimg.src = result.img;
+            document.getElementById("demo").appendChild(myimg);
+            let myDiv ;
+            myp = document.createElement("p");
+            for(let i of result.children)
+            {
+                myp = document.createElement("p");
+            myp.innerText =  i.name;
+            document.getElementById("demo").appendChild(myp);
+
+                for(let j of i.children)
+                {
+                    myDiv = document.createElement("div");
+                    myDiv.classList.add("col");
+                    //myDiv.classList.add("card");
+                    myDiv.id = "contains";
+                    document.getElementById("demo").appendChild(myDiv);
+                    myp = document.createElement("p");
+                    myp.innerText =  j.hero;
+                    document.getElementById("contains").appendChild(myp);
+                    myp = document.createElement("p");
+                    myp.innerText =  j.name;
+                    document.getElementById("contains").appendChild(myp);
+                    myp = document.createElement("p");
+                    myp.innerText =  j.link;
+                    document.getElementById("contains").appendChild(myp);   
+                    myimg = document.createElement("img");
+                    myimg.src = j.img;
+                    document.getElementById("contains").appendChild(myimg);
+                }
+            }
+
+            console.log(result);
+            //document.getElementById("demo").innerText = result;
+            }
+            xhr.open("GET", "https://gist.githubusercontent.com/santiagoolivar2017/8e8d7075971821ff7b7ebf6601b09fbb/raw/9b52bdf4c4c3969d541b99c2e414cd3c0f698843/marvel.json");
+            //xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send();
+            function output(text) {
+                data = JSON.parse(text);
+                let el = document.createElement('p');
+                el.innerText = "Active: " + data.active;
+                main.appendChild(el);
+                printMembers(data.members);
+            }
+
+            function printMembers(members) {
+                members.map(m => {
+                    let p = document.createElement('p');
+                    p.innerText = "Member: " + m.name;
+                    return p;
+                }
+                ).forEach(p => main.appendChild(p));
+            }
+            
+        </script>
+    </body>
+</html>

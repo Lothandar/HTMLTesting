@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style> div{
+color:steelblue;
+font-size: 1em;
+text-align:center;
+}</style>
+</head>
+
+<body>
+    <h3>Name: Baguette<br> Age: 22 <br> Hobbies: not javascript about 0 front end and what about backend Dev</h3>
+    <div>
+    I love Js<input type="radio" name="test" Id="love" value="love" onclick="displayRadioValue()"><br>
+    I hate Js<input type="radio" name="test" Id="hate" value="hate" onclick="displayRadioValue()">
+    </div>
+    <div id="result"></div> 
+    <button><a href="clicker.html">clickery</a></button>
+    <button><a href="event.html">button/triggerEventTest</a></button>
+    <button><a href="calculator.html">calculator <i class="fa fa-calculator" aria-hidden="true"></i></a></button>
+    <script> 
+        function displayRadioValue() { 
+            if(document.getElementById("love").checked == true)
+        {
+            document.getElementById("love").append("<h1>FUCK JS GO BACK END</h1>");
+        }
+        else if(document.getElementById("hate").checked == true)
+        {
+            document.getElementById("hate").append("<h1>ah you are a man of culture as well</h1>");
+            document.getElementById("love").remove();
+        }
+        
+            var ele = document.getElementsByName('test'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                if(ele[i].checked) 
+                document.getElementById("result").innerHTML
+                        = "Gender: "+ele[i].value; 
+            } 
+        } 
+    </script> 
+    <script>
+    var randomColor = (function lol(m, s, c) {
+        return s[m.floor(m.random() * s.length)] +
+            (c && lol(m, s, c - 1));
+    })(Math, '3456789ABCDEF', 4);</script>
+</body>
+
+</html>

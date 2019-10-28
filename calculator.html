@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" ID=userInput></input> <label id="result"></label> <br>
+            <input type="button" value="7" onclick="addDigit(this.value)"></input><input type="button" value="8" onclick="addDigit(this.value)"></input><input type="button" onclick="addDigit(this.value)" value="9"></input><input type="button" onclick="addArgument(this.value)" value="/"><br>
+            <input type="button" onclick="addDigit(this.value)" value="4"></input><input type="button" onclick="addDigit(this.value)" value="5"></input><input type="button" onclick="addDigit(this.value)" value="6"></input><input type="button" onclick="addArgument(this.value)" value="*"><br>
+            <input type="button" onclick="addDigit(this.value)" value="1"></input><input type="button" onclick="addDigit(this.value)" value="2"></input><input type="button" onclick="addDigit(this.value)" value="3"></input><input type="button" onclick="addArgument(this.value)" value="+"><br>
+            <input type="submit" onclick="f()" value="="/><input onclick="addArgument(this.value)" type="button" value="-">
+        </div>
+        <div id="history"></div>
+
+        <script>
+            let calculargument;
+            let currentNumber = 0;
+        function addDigit(digit)
+        {
+            document.getElementById("userInput").value += digit;
+            currentNumber += digit;
+            console.log(currentNumber);
+        }
+        function addArgument()
+        {
+            switch(arguments[0])
+            {
+                case "+":
+                break;
+                case "-":
+                break;
+                case "*":
+                break;
+                case "/":
+                break;
+                case "²":
+                break;
+            }
+        }
+
+            function f()
+            {
+                let calculation = document.getElementById("userInput").value;
+                let something = calculation.split("+ , - , * , / , %");
+                if(something.length>=0)
+                {
+                for(i= 0; i< something.length; i++)
+                {
+                    console.log(something[i]);
+                }
+                document.getElementById("result").innerText = something;
+                }
+                else
+                {
+                    console.log(calculation);
+                    document.getElementById("result").innerText = calculation;
+                }
+                let myp = document.createElement("p");
+                myp.innerText = document.getElementById("userInput").value + " = " + document.getElementById("result").innerText;
+                document.getElementById("history").appendChild(myp);
+
+                document.getElementById("userInput").value = "";
+            }
+        </script>
+    </body>
+</html>

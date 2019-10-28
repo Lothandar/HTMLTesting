@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href=".\main.css">
+    </head>
+    <body>
+        <div class="Content">
+            <div class="ClickerPart" style="width:50%">
+                <h1> You have baguettes <span id="Score">0</span></h1>
+                <button style="width:50%" onclick="increment()"><img style="width:50%" src="baguette.png"/>
+                    ClickMe
+                </button>
+            </div>
+            <div class="BuyingPart">
+                <button onclick="buyClicker(1)">
+                    Clicker cost 10
+                </button>
+                <button onclick="buyBakery(1)">
+                        Bakery cost 50
+                </button>
+            </div>
+        </div>
+        <script>
+            var Score = 0;
+            var ClickersNo = 0;
+            var ClickersValue = 1;
+            var BakeryNo = 0;
+            var BakeryValue = 5
+            var incrementation = 1 + ClickersNo * ClickersValue;
+            var Interval = setInterval(Update, 1000);
+        
+            
+            function Update()
+            {
+                Score += BakeryNo * BakeryValue; //add all elements
+                UpdateScore();
+            }
+
+            function UpdateScore()
+            {
+                document.getElementById("Score").innerHTML = Score;
+            }
+            function increment()
+            {
+                Score += incrementation;
+                UpdateScore();
+            }
+            function UpdateIncrement(){
+                incrementation = 1 + ClickersNo * ClickersValue;
+            }
+            function buyClicker(amount)
+            {
+                if(Score>=10)
+                {
+                    Score -=10;
+                ClickersNo +=amount;
+                UpdateIncrement();
+                UpdateScore();
+                }
+            }
+            function buyBakery(amount)
+            {
+                if(Score>=50)
+                {
+                    Score -=50;
+                BakeryNo += amount;
+                UpdateIncrement();
+                UpdateScore();
+                }
+            }
+        </script>
+    </body>
+</html>
